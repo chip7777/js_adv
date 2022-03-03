@@ -24,6 +24,12 @@ class ProductList{
 //           block.innerHTML += item.render();
         }
     }
+
+    getTotalCost(){
+        let totalCost = 0;
+        this.goods.forEach(elem => totalCost += elem.price);
+        return totalCost;
+    }
 }
 
 class ProductItem{
@@ -44,6 +50,7 @@ class ProductItem{
 }
 
 let list = new ProductList();
+console.log(` Общая стоимость товаров: ${list.getTotalCost()}`);
 
 
 
@@ -65,3 +72,25 @@ let list = new ProductList();
 //const renderPage = list => document.querySelector('.products').innerHTML = list.map(item => renderProduct(item)).join('');
 //
 //renderPage(products);
+
+class Basket {
+    addGood() {
+
+    }
+    removeGood() {
+
+    }
+    changeGood() {
+
+    }
+    
+    render(){
+        
+    }
+}
+
+class BasketElem {
+    show(){
+        
+    }
+}
