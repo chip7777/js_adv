@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/normalize.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Hamburger</title>
+</head>
+<body>
+<h1 class="title">Собери свой гамбургер</h1>
+
+<section class="section_main">
+    <div>
+        <input  id="small" type="radio" name="main" checked="true" 
+            data-name="Маленький" data-cost="50" data-calories="20">
+        <label class="checkBox" for="small">Маленький (50 рублей, 20 калорий)</label>
+    </div>
+    <div>
+        <input id="big" type="radio" name="main" 
+            data-name="Большой" data-cost="100" data-calories="40">
+        <label class="checkBox" for="big">Большой (100 рублей, 40 калорий)</label>
+    </div>
+</section>
+
+<section class="section_addition">
+    <div>
+        <input  id="cheeze" type="radio" name="addition" checked="true" 
+            data-name="С сыром" data-cost="10" data-calories="20">
+        <label class="checkBox" for="cheeze"> С сыром (+10 рублей, +20 калорий)</label>
+    </div>
+    <div>
+        <input id="salad" type="radio" name="addition" data-name="С салатом" 
+            data-cost="20" data-calories="5">
+        <label class="checkBox" for="salad">С салатом (+20 рублей, +5 калорий)</label>
+    </div>
+    <div>
+        <input id="potato" type="radio" name="addition" data-name="С картофелем" 
+            data-cost="15" data-calories="10">
+        <label class="checkBox" for="potato">С картофелем (+15 рублей, +10 калорий)</label>
+    </div>
+</section>    
+
+<section class="section_sous">
+    <div>
+        <input id="sous" type="checkbox" name="sous" 
+            data-name= "посыпать приправой" data-cost="15" data-calories="0">
+        <label class="checkBox" for="sous">посыпать приправой (+15 рублей, +0 калорий)</label>
+    </div>
+    <div>
+        <input id="mayonnaise" type="checkbox" name="sous" 
+        data-name="полить майонезом" data-cost="20" data-calories="5">
+        <label class="checkBox" for="mayonnaise">полить майонезом (+20 рублей, +5 калорий)</label>
+    </div>
+</section>
+<p class="total" id="total">Итоговая стоимость: 0, калорийность: 0</p>
+<button>Посчитать стоимость и калорийность</button>
+
+<script src="./js/hamburger.js"></script>
+</body>
+</html>
