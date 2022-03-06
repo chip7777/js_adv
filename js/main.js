@@ -80,3 +80,54 @@ class ProductItem {
 let list = new ProductsList();
 console.log(list.allProducts);
 
+class Basket {
+    constructor (block = '.basket-block'){
+        this.block = block;
+        this._addListener();
+        this.goods = [];
+        this._getGoods();
+        this.show();
+    }
+    addGood() {
+
+    }
+    removeGood() {
+
+    }
+    changeGood() {
+
+    }
+
+    _addListener (){
+        document.querySelector('.btn-cart').addEventListener('click', () => {
+            document.querySelector(this.block).classList.toggle('invisible');
+        });
+    }
+    _getGoods(){
+        return fetch(`${API}/getBasket.json`)
+            .then(result => result.json())
+            .then(data => data.contents.forEach(element => {
+                this.goods.push(element);
+                this.show(element);
+            }));
+    }
+    _render (elem, image = 'https://via.placeholder.com/50x50') {
+        return `<div class='basket-el'>
+            <img src="${image}" alt="image">
+            <span class='basket-title'>${elem.product_name}</span>
+            <span class='basket-cost'>${elem.price}</span>
+            <span class='basket-quantity'>${elem.quantity}</span>
+            </div>`;
+    }
+    show (elem){
+        const block = document.querySelector(this.block);
+        block.insertAdjacentHTML('beforeend',this._render(elem));
+        
+    }
+}
+
+
+
+const basket = new Basket();
+
+console.log(basket);
