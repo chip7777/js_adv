@@ -6,11 +6,15 @@ const app = new Vue({
         catalogUrl: '/catalogData.json',
         products: [],
         filtered: [],
+        basket: [],
         imgCatalog: 'https://via.placeholder.com/200x150',
         userSearch: '',
         show: false
     },
     methods: {
+        togle_basket(){
+            this.show = !this.show;
+        },
         filter(value){
          const regexp = new RegExp(value, 'i');
          this.filtered = this.products.filter(product => regexp.test(product.product_name));
@@ -31,12 +35,14 @@ const app = new Vue({
            .then(data => {
                for(let el of data){
                    this.products.push(el);
+                   this.filtered.push(el);
                }
            });
         this.getJson(`getProducts.json`)
             .then(data => {
                 for(let el of data){
                     this.products.push(el);
+                    this.filtered.push(el);
                 }
             })
     }
