@@ -27,8 +27,15 @@ const app = new Vue({
                 })
         },
         addProduct(product){
-            console.log(product.id_product);
-        }
+            //console.log(product.id_product);
+            if (this.basket.find(item => item.id_product == product.id_product)) {
+                product.quantity++;
+            } else {
+                this.basket.push(Object.assign(product, { quantity: 1 }));
+                    
+                console.log(this.basket);
+            };
+        },
     },
     mounted(){
        this.getJson(`${API + this.catalogUrl}`)
