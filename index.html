@@ -19,6 +19,7 @@
             </form>
             <button class="btn-cart" type="button" @click="togle_basket()">Корзина</button>
             <div class="cart-block" v-show="show">
+                <p v-if="basket.length == 0">Нет данных</p>
                 <div class="cart-item" v-for="product of basket"  :data-id="product.id_product">
                     <div class="product-bio">
                         <img :src="imgCatalog" width= "50px" heigth= "50px" alt="Some image">
@@ -30,7 +31,7 @@
                     </div>
                     <div class="right-block">
                         <p class="product-price">{{product.quantity*product.price}}</p>
-                        <button class="del-btn" :data-id="product.id_product">&times;</button>
+                        <button class="del-btn" @click="remove(product)" :data-id="product.id_product">&times;</button>
                     </div>
                 </div>
             </div>

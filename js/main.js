@@ -34,8 +34,20 @@ const app = new Vue({
                 this.basket.push(Object.assign(product, { quantity: 1 }));
                     
                 console.log(this.basket);
-            };
+            }
         },
+        remove(product){
+            if (product.quantity > 1) {
+                product.quantity--;
+            } else {
+                const ind = this.basket.findIndex(el => el.id_product == product.id_product);
+                console.log(ind);
+                if (ind >= 0) {
+                    this.basket.splice(ind,1);
+                }
+            }
+            
+        }
     },
     mounted(){
        this.getJson(`${API + this.catalogUrl}`)
